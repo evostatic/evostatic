@@ -182,34 +182,6 @@ function initStats() {
 }
 initStats();
 
-/* --- About Image Slider --- */
-function initAboutSlider() {
-    const imgEl = document.getElementById('about-image');
-    if (!imgEl) return;
-
-    const images = [
-        "/assets/aboutPics/1.png"
-    ];
-    let currentIndex = 0;
-
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        // Simple fade effect by toggling opacity
-        imgEl.style.opacity = '0';
-        
-        setTimeout(() => {
-            imgEl.src = images[currentIndex];
-            imgEl.onload = () => {
-                imgEl.style.opacity = '1';
-            };
-            // Fallback if load is too fast or cached
-            setTimeout(() => { imgEl.style.opacity = '1'; }, 50);
-        }, 500); // Wait for fade out
-        
-    }, 3500);
-}
-initAboutSlider();
-
 /* --- Aurora WebGL Animation --- */
 function initAurora() {
     console.log('Initializing Aurora...');
