@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-20">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>EvoStatic | Modern Web Design Studio & Digital Agency</title>
+    <meta name="title" content="EvoStatic | Modern Web Design Studio & Digital Agency">
+    <meta name="description" content="EvoStatic is a premium web design studio creating sleek and modern websites. Expert landing pages, business sites, and e-commerce solutions.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Muhammad Meluk">
+    <link rel="canonical" href="https://evostatic.github.io/evostatic/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evostatic.github.io/evostatic/">
+    <meta property="og:title" content="EvoStatic | Future of Web Design">
+    <meta property="og:description" content="EvoStatic is a premium web design studio creating sleek and modern websites.">
+    <meta property="og:image" content="https://evostatic.github.io/evostatic/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://evostatic.github.io/evostatic/">
+    <meta property="twitter:title" content="EvoStatic | Future of Web Design">
+    <meta property="twitter:description" content="EvoStatic is a premium web design studio creating sleek and modern websites.">
+    <meta property="twitter:image" content="https://evostatic.github.io/evostatic/assets/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/img/favicon-128x128.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="./assets/img/favicon-128x128.png" />
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Import Map for Modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "ogl": "https://aistudiocdn.com/ogl@^1.0.11",
+        "ogl/": "https://aistudiocdn.com/ogl@^1.0.11/"
+      }
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EvoStatic",
+      "image": "https://evostatic.github.io/evostatic/assets/img/favicon.png",
+      "url": "https://evostatic.github.io/evostatic/",
+      "telephone": "+201069377014",
+      "priceRange": "$150-$500",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alexandria City",
+        "addressCountry": "Egypt"
+      },
+    }
+    </script>
+</head>
+<body class="min-h-screen bg-background text-foreground antialiased transition-colors duration-300">
+
+    <!-- Click Spark Canvas -->
+    <canvas id="click-spark-canvas" class="fixed inset-0 pointer-events-none z-[100]"></canvas>
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent bg-transparent">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer flex items-center gap-3" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    <img src="./assets/img/favicon-128x128.png" alt="EvoStatic Logo" class="h-10 w-10 object-contain" />
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center" aria-label="Main Navigation">
+                    <a href="#home" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Services</a>
+                    <a href="#portfolio" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#contact" class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">Contact</a>
+                    <button id="theme-toggle" class="w-9 h-9 p-0 rounded-full inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="h-4 w-4 theme-icon-moon"></i>
+                        <i data-lucide="sun" class="h-4 w-4 theme-icon-sun hidden"></i>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="w-9 h-9 p-0 rounded-full inline-flex items-center justify-center hover:bg-accent" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="h-4 w-4 theme-icon-moon"></i>
+                        <i data-lucide="sun" class="h-4 w-4 theme-icon-sun hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-foreground p-2 rounded-md hover:bg-accent focus:outline-none" aria-label="Open menu">
+                        <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
+                        <i data-lucide="x" class="h-6 w-6 hidden" id="close-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background/95 backdrop-blur-xl border-b border-border absolute w-full shadow-lg">
+            <div class="px-6 md:px-12 pt-2 pb-4 space-y-2">
+                <a href="#home" class="mobile-link block px-3 py-3 rounded-md text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors">Home</a>
+                <a href="#about" class="mobile-link block px-3 py-3 rounded-md text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors">About</a>
+                <a href="#services" class="mobile-link block px-3 py-3 rounded-md text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors">Services</a>
+                <a href="#portfolio" class="mobile-link block px-3 py-3 rounded-md text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors">Portfolio</a>
+                <a href="#contact" class="mobile-link block px-3 py-3 rounded-md text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/50 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="home" class="relative w-full h-screen flex items-center justify-center overflow-hidden bg-background">
+            <div id="aurora-container" class="absolute inset-0 z-0" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-white/30 dark:bg-black/30 backdrop-blur-[1px] pointer-events-none z-[1]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background pointer-events-none z-[1]"></div>
+
+            <div id="hero-content" class="relative z-10 container mx-auto px-6 md:px-12 text-center transition-all duration-1000 transform ease-out reveal-hidden">
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div class="inline-flex items-center rounded-full border border-primary/20 bg-background/50 backdrop-blur-sm px-3 py-1 text-sm font-medium text-primary mb-4">
+                        <span class="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+                        Now accepting new projects
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground drop-shadow-sm">
+                        Digital experiences that <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-600 dark:from-blue-400 dark:to-pink-400">work.</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto font-light">
+                        EvoStatic provides sleek, modern web design services focused on performance and clean aesthetics.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 px-4 sm:px-0">
+                        <a href="#contact" class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-primary text-primary-foreground hover:bg-primary/90 text-lg h-14 px-8 rounded-full shadow-lg shadow-primary/20 w-full sm:w-auto">
+                            Start Your Project
+                            <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </a>
+                        <a href="#portfolio" class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none border border-input text-lg h-14 px-8 rounded-full bg-background/40 backdrop-blur-md border-primary/20 hover:bg-background/60 hover:text-accent-foreground w-full sm:w-auto">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+                <div class="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center pt-2" aria-label="Scroll down">
+                    <div class="w-1 h-2 bg-foreground/50 rounded-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="py-16 md:py-24 bg-background relative">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center reveal-element transition-all duration-1000">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl md:text-5xl font-bold tracking-tight">
+                            We craft sleek <br/>
+                            <span class="text-primary">digital experiences.</span>
+                        </h2>
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            At EvoStatic, we focus on creating clean, functional websites. We strip away the clutter to focus on what matters: your content, delivered effectively with a modern touch.
+                        </p>
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            Our approach combines smooth animations with solid coding standards to ensure your site looks good and works perfectly on all devices.
+                        </p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <li class="flex items-center space-x-2"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary"></i><span class="font-medium">Clean Architecture</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary"></i><span class="font-medium">Modern Aesthetic</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary"></i><span class="font-medium">Responsive Design</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary"></i><span class="font-medium">Scalable Solutions</span></li>
+                        </ul>
+                    </div>
+                    <div class="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                        <!-- ID added for JS Slider -->
+                        <img id="about-image" src="./assets/aboutPics/1.png" alt="Minimalist Design Studio Workspace" class="object-cover w-full h-full transform transition-all duration-1000" loading="lazy" />
+                         <div class="absolute bottom-6 left-6 z-20 bg-white/10 backdrop-blur-lg border border-white/20 p-4 rounded-xl text-white max-w-xs">
+                            <p class="text-sm font-medium">"Good design is obvious. Great design is transparent."</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-16 md:py-24 bg-secondary/30">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Simple Pricing</h2>
+                    <p className="text-muted-foreground text-lg">Affordable packages for your web needs. No hidden fees.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-element transition-all duration-1000">
+                    <!-- Card 1 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow-sm border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                                <i data-lucide="rocket" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight">Landing Page</h3>
+                            <p class="text-primary font-semibold mt-2 text-xl">$150</p>
+                        </div>
+                        <div class="p-6 pt-0 flex-grow">
+                            <p class="text-muted-foreground mb-6">A clean, single-page website to showcase your product or service.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">One-page layout</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Contact Form</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Mobile Responsive</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Social Media Links</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Fast Turnaround</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex items-center p-6 pt-0">
+                            <a href="#contact">
+                            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">Get Started</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow-sm border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                                <i data-lucide="laptop" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight">Business Website</h3>
+                            <p class="text-primary font-semibold mt-2 text-xl">$350</p>
+                        </div>
+                        <div class="p-6 pt-0 flex-grow">
+                            <p class="text-muted-foreground mb-6">A professional multi-page website to establish your online presence.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Up to 5 pages</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">CMS Integration</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Smooth Animations</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Basic SEO Setup</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Contact & Map Integration</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">2 Weeks Delivery</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex items-center p-6 pt-0">
+                            <a href="#contact">
+                            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">Get Started</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow-sm border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                                <i data-lucide="shopping-bag" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold leading-none tracking-tight">E-commerce</h3>
+                            <p class="text-primary font-semibold mt-2 text-xl">$500</p>
+                        </div>
+                        <div class="p-6 pt-0 flex-grow">
+                            <p class="text-muted-foreground mb-6">A functional online store to help you sell your products.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Product Management</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Payment Integration</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Shopping Cart</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Order Notifications</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">Mobile Optimized</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="h-4 w-4 text-primary mr-2 mt-1 shrink-0"></i><span class="text-sm text-foreground/80">3+ Weeks Delivery</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex items-center p-6 pt-0">
+                            <a href="#contact">
+                            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">Get Started</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section id="portfolio" class="py-16 md:py-24 bg-background">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Selected Works</h2>
+                        <p class="text-muted-foreground text-lg max-w-xl">
+                            A showcase of our recent collaborations. Where design meets function.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-group">
+                    <!-- Project 1 -->
+                    <a href="https://msmelok.github.io/mega/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="0">
+                        <img src="./assets/projectsPics/project_1.png" alt="Mega NetCafe & Repair" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Website</span>
+                            <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">Mega NetCafe & Computer Repair</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Project 2 -->
+                    <a href="https://msmelok.github.io/vetcorner/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="100">
+                        <img src="./assets/projectsPics/project_2.png" alt="Vet Corner Clinic" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Website</span>
+                            <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">Vet Corner Clinic</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3 -->
+                    <a href="https://msmelok.github.io/plastic-plus/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="200">
+                        <img src="./assets/projectsPics/project_3.png" alt="Plastic Plus Group" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Website</span>
+                             <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">Plastic Plus Group</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 4 -->
+                    <a href="https://msmelok.github.io/box-mate/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="300">
+                        <img src="./assets/projectsPics/project_4.png" alt="BoxMate" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">SaaS</span>
+                             <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">BoxMate</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 5 -->
+                    <a href="https://msmelok.github.io/convert/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="400">
+                        <img src="./assets/projectsPics/project_5.png" alt="TimeZone Converter" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">SaaS</span>
+                             <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">TimeZone Converter</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 6 -->
+                    <a href="https://msmelok.github.io/finder/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-700 reveal-item block" data-delay="500">
+                        <img src="./assets/projectsPics/project_6.png" alt="WhatsApp Quick Message" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-primary text-sm font-medium mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">SaaS</span>
+                             <div class="flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                <h3 class="text-white text-xl font-bold">WhatsApp Quick Message</h3>
+                                <i data-lucide="external-link" class="h-4 w-4 text-white/80"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="py-16 md:py-20 bg-primary/5 dark:bg-primary/10 border-y border-border/50">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="space-y-2">
+                        <span class="font-bold text-4xl md:text-5xl text-foreground stat-counter" data-target="50" data-suffix="+">0+</span>
+                        <p class="text-muted-foreground font-medium">Happy Clients</p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="font-bold text-4xl md:text-5xl text-foreground stat-counter" data-target="30" data-suffix="+">0+</span>
+                        <p class="text-muted-foreground font-medium">Projects Completed</p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="font-bold text-4xl md:text-5xl text-foreground stat-counter" data-target="3" data-suffix="">0</span>
+                        <p class="text-muted-foreground font-medium">Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-16 md:py-24 bg-background">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Why EvoStatic?</h2>
+                    <p className="text-muted-foreground text-lg">We build modern, responsive websites tailored to your needs.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group">
+                    <div class="p-6 rounded-2xl bg-secondary/20 border border-border/50 hover:bg-secondary/40 transition-all duration-500 reveal-item" data-delay="0">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="clock" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Timely Delivery</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">We work efficiently to get your website up and running when you need it.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-secondary/20 border border-border/50 hover:bg-secondary/40 transition-all duration-500 reveal-item" data-delay="100">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="shield-check" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Affordable Pricing</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Clear, upfront pricing with no hidden costs.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-secondary/20 border border-border/50 hover:bg-secondary/40 transition-all duration-500 reveal-item" data-delay="200">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="heart-handshake" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Friendly Support</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">We are here to help you even after your site goes live.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-secondary/20 border border-border/50 hover:bg-secondary/40 transition-all duration-500 reveal-item" data-delay="300">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="sparkles" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Modern Design</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Built using the latest web technologies for a fresh look.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-16 md:py-24 bg-secondary/20">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Let's talk.</h2>
+                            <p className="text-muted-foreground text-lg">Ready to transform your digital presence? Fill out the form, and we'll get back to you within 24 hours.</p>
+                        </div>
+                        <address class="space-y-6 not-italic">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary"><i data-lucide="mail" class="h-5 w-5"></i></div>
+                                <div><h3 class="font-medium text-foreground">Email</h3><a href="mailto:muhammadmeluk@gmail.com" class="text-muted-foreground hover:text-primary transition-colors">MuhammadMeluk@gmail.com</a></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary"><i data-lucide="phone" class="h-5 w-5"></i></div>
+                                <div><h3 class="font-medium text-foreground">Phone</h3><a href="tel:+201069377014" class="text-muted-foreground hover:text-primary transition-colors">+20 (106) 937-7014</a></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary"><i data-lucide="map-pin" class="h-5 w-5"></i></div>
+                                <div><h3 class="font-medium text-foreground">HQ</h3><p class="text-muted-foreground">Alexandria City, Egypt</p></div>
+                            </div>
+                        </address>
+                    </div>
+                    <div class="rounded-xl border text-card-foreground border-none shadow-xl bg-background/80 backdrop-blur-md">
+                        <div class="p-6 md:p-8">
+                            <form action="https://formsubmit.co/muhammadmeluk@gmail.com" method="POST" class="space-y-6" onsubmit="event.preventDefault(); alert('Form submitted (demo)!')">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div class="space-y-2">
+                                        <label for="name" class="text-sm font-medium">Name</label>
+                                        <input id="name" name="name" placeholder="John Doe" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" />
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="email" class="text-sm font-medium">Email</label>
+                                        <input id="email" name="email" type="email" placeholder="john@example.com" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" />
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="subject" class="text-sm font-medium">Subject</label>
+                                    <input id="subject" name="subject" placeholder="Project Inquiry" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="message" class="text-sm font-medium">Message</label>
+                                    <textarea id="message" name="message" placeholder="Tell us about your project..." required class="flex min-h-[150px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"></textarea>
+                                </div>
+                                <button type="submit" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 w-full text-lg h-12">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background border-t border-border py-12">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                     <span class="text-xl font-bold tracking-tighter">
+                        Evo<span class="text-primary">Static</span>
+                    </span>
+                    <p class="text-sm text-muted-foreground mt-1">© 2025 EvoStatic Studio. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/muhammad.salah.meluk" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="h-5 w-5"></i></a>
+                    <a href="https://github.com/msmelok/" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub"><i data-lucide="github" class="h-5 w-5"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammadmeluk/" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="h-5 w-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
